@@ -14,15 +14,13 @@ namespace AdventOfCode2020.Solutions
             {
                 string[] splittedPasswordLine = passwordLine.Split(' ');
                 string[] policy = splittedPasswordLine[0].Split('-');
-                int position1Policy = int.Parse(policy[0]);
-                int position2Policy = int.Parse(policy[1]);
                 string character = splittedPasswordLine[1].Substring(0, 1);
                 string password = splittedPasswordLine[2];
 
                 int numberOfOccurence = new Regex(character).Matches(password).Count;
 
-                if (numberOfOccurence >= position1Policy &&
-                    numberOfOccurence <= position2Policy)
+                if (numberOfOccurence >= int.Parse(policy[0]) &&
+                    numberOfOccurence <= int.Parse(policy[1]))
                 {
                     isValidPassword++;
                 }
@@ -39,13 +37,13 @@ namespace AdventOfCode2020.Solutions
             {
                 string[] splittedPasswordLine = passwordLine.Split(' ');
                 string[] policy = splittedPasswordLine[0].Split('-');
-                int position1Policy = int.Parse(policy[0]);
-                int position2Policy = int.Parse(policy[1]);
                 string character = splittedPasswordLine[1].Substring(0, 1);
                 string password = splittedPasswordLine[2];
 
-                bool isOccurence1 = password.Substring(position1Policy - 1, 1) == character;
-                bool isOccurence2 = password.Substring(position2Policy - 1, 1) == character;
+                Regex checkCharPattern = new Regex($@"\G{character}");
+
+                bool isOccurence1 = checkCharPattern.IsMatch(password, int.Parse(policy[0]) - 1);
+                bool isOccurence2 = checkCharPattern.IsMatch(password, int.Parse(policy[1]) - 1);
 
                 if (isOccurence1 ^ isOccurence2)
                 {
