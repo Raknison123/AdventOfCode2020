@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2020.Solutions
 {
@@ -15,10 +16,11 @@ namespace AdventOfCode2020.Solutions
                 string[] policy = splittedPasswordLine[0].Split('-');
                 int position1Policy = int.Parse(policy[0]);
                 int position2Policy = int.Parse(policy[1]);
-                char character = splittedPasswordLine[1].Substring(0, 1).ToCharArray()[0];
+                string character = splittedPasswordLine[1].Substring(0, 1);
                 string password = splittedPasswordLine[2];
 
-                int numberOfOccurence = password.Count(p => p == character);
+                int numberOfOccurence = new Regex(character).Matches(password).Count;
+
                 if (numberOfOccurence >= position1Policy &&
                     numberOfOccurence <= position2Policy)
                 {
