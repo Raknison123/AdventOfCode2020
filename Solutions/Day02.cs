@@ -9,16 +9,16 @@ namespace AdventOfCode2020.Solutions
         {
             int isValidPassword = 0;
 
-            foreach (var passwordLine in this.Input)
+            foreach (string passwordLine in this.Input)
             {
-                var splittedPasswordLine = passwordLine.Split(' ');
-                var policy = splittedPasswordLine[0].Split('-');
-                var position1Policy = int.Parse(policy[0]);
-                var position2Policy = int.Parse(policy[1]);
-                var character = splittedPasswordLine[1].Substring(0, 1).ToCharArray()[0];
-                var password = splittedPasswordLine[2];
+                string[] splittedPasswordLine = passwordLine.Split(' ');
+                string[] policy = splittedPasswordLine[0].Split('-');
+                int position1Policy = int.Parse(policy[0]);
+                int position2Policy = int.Parse(policy[1]);
+                char character = splittedPasswordLine[1].Substring(0, 1).ToCharArray()[0];
+                string password = splittedPasswordLine[2];
 
-                var numberOfOccurence = password.Count(p => p == character);
+                int numberOfOccurence = password.Count(p => p == character);
                 if (numberOfOccurence >= position1Policy &&
                     numberOfOccurence <= position2Policy)
                 {
@@ -33,14 +33,14 @@ namespace AdventOfCode2020.Solutions
         {
             int isValidPassword = 0;
 
-            foreach (var passwordLine in this.Input)
+            foreach (string passwordLine in this.Input)
             {
-                var splittedPasswordLine = passwordLine.Split(' ');
-                var policy = splittedPasswordLine[0].Split('-');
-                var position1Policy = int.Parse(policy[0]);
-                var position2Policy = int.Parse(policy[1]);
-                var character = splittedPasswordLine[1].Substring(0, 1);
-                var password = splittedPasswordLine[2];
+                string[] splittedPasswordLine = passwordLine.Split(' ');
+                string[] policy = splittedPasswordLine[0].Split('-');
+                int position1Policy = int.Parse(policy[0]);
+                int position2Policy = int.Parse(policy[1]);
+                string character = splittedPasswordLine[1].Substring(0, 1);
+                string password = splittedPasswordLine[2];
 
                 bool isOccurence1 = password.Substring(position1Policy - 1, 1) == character;
                 bool isOccurence2 = password.Substring(position2Policy - 1, 1) == character;
