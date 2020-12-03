@@ -19,25 +19,23 @@ namespace AdventOfCode2020.Solutions
 
         protected override object SolvePart1()
         {
-            (int x, int y) tobogganPosition = (0, 0);
-            return TraverseMap(tobogganPosition, 3, 1);
+            return TraverseMap(3, 1);
         }
 
         protected override object SolvePart2()
         {
             {
-                (int x, int y) tobogganPosition = (0, 0);
-
-                return TraverseMap(tobogganPosition, 1, 1) *
-                       TraverseMap(tobogganPosition, 3, 1) *
-                       TraverseMap(tobogganPosition, 5, 1) *
-                       TraverseMap(tobogganPosition, 7, 1) *
-                       TraverseMap(tobogganPosition, 1, 2);
+                return TraverseMap(1, 1) *
+                       TraverseMap(3, 1) *
+                       TraverseMap(5, 1) *
+                       TraverseMap(7, 1) *
+                       TraverseMap(1, 2);
             }
         }
 
-        private long TraverseMap((int x, int y) tobogganPosition, int xOffset, int yOffset)
+        private long TraverseMap(int xOffset, int yOffset)
         {
+            (int x, int y) tobogganPosition = (0, 0);
             long numberOfEncounteredTrees = 0;
             do
             {
