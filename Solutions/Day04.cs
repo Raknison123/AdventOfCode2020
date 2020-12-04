@@ -13,10 +13,7 @@ namespace AdventOfCode2020.Solutions
             int numberOfValidPassports = 0;
             foreach (var passport in passports)
             {
-                if (HasPassportAllNecessaryInfos(passport))
-                {
-                    numberOfValidPassports++;
-                }
+                if (HasPassportAllNecessaryInfos(passport)) numberOfValidPassports++;
             }
 
             return numberOfValidPassports;
@@ -36,7 +33,6 @@ namespace AdventOfCode2020.Solutions
                 var issueYear = int.Parse(passport["iyr"]);
                 if (!(issueYear >= 2010 && issueYear <= 2020)) continue;
 
-
                 var expYear = int.Parse(passport["eyr"]);
                 if (!(expYear >= 2020 && expYear <= 2030)) continue;
 
@@ -53,7 +49,6 @@ namespace AdventOfCode2020.Solutions
                     if (!(height >= 59 && height <= 76)) continue;
                 }
                 else continue;
-
 
                 var hcl = passport["hcl"];
                 var regex = new Regex("^[#][a-f0-9#]{6,6}$");
