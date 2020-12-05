@@ -51,7 +51,7 @@ namespace AdventOfCode2020.Solutions
                 else continue;
 
                 var hcl = passport["hcl"];
-                var regex = new Regex("^[#][a-f0-9#]{6,6}$");
+                var regex = new Regex("^[#][a-f0-9]{6,6}$");
                 if (!regex.IsMatch(hcl)) continue;
 
                 var ecl = passport["ecl"];
