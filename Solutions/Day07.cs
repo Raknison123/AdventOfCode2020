@@ -5,8 +5,8 @@ namespace AdventOfCode2020.Solutions
 {
     public class Day07 : DayBase
     {
-        private readonly Dictionary<string, List<(int amount, string bagType)>> bagPolicies = new Dictionary<string, List<(int amount, string bagType)>>();
-        private readonly HashSet<string> bagColorsContainShinyGold = new HashSet<string>();
+        private readonly Dictionary<string, List<(int amount, string bagType)>> bagPolicies = new();
+        private readonly HashSet<string> bagColorsContainShinyGold = new();
         private int numOfRequiredBagsInside = 0;
 
         public Day07()
@@ -15,7 +15,7 @@ namespace AdventOfCode2020.Solutions
             {
                 var cleanedPolicyLine = policyLine.Replace(" bags", "").Replace(" bag", "").Replace(".", "");
                 var policy = cleanedPolicyLine.Split(" contain ");
-                var contains = policy[1].Split(", ").Where(x => x != "no other")
+                var contains = policy[1].Split(", ").Where(x => x is not "no other")
                                         .Select(x => (amount: int.Parse(x.Substring(0, 1)), bagType: x.Substring(1).Trim()))
                                         .ToList();
 

@@ -5,7 +5,7 @@ namespace AdventOfCode2020.Solutions
 {
     public class Day08 : DayBase
     {
-        private readonly List<(string operation, int value)> instructions = new List<(string operation, int value)>();
+        private readonly List<(string operation, int value)> instructions = new();
 
         public Day08()
         {

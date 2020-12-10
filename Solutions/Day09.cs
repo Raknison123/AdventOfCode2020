@@ -5,7 +5,7 @@ namespace AdventOfCode2020.Solutions
 {
     public class Day09 : DayBase
     {
-        private readonly List<long> ciphers = new List<long>();
+        private readonly List<long> ciphers = new();
 
         public Day09()
         {
