@@ -7,7 +7,7 @@ namespace AdventOfCode2020
     {
         static void Main(string[] args)
         {
-            var puzzle = new Day16();
+            var puzzle = new Day17();
 
             Console.WriteLine($"{puzzle.GetType().Name} - Part1:{puzzle.Part1}, Part2:{puzzle.Part2}");
             Console.ReadKey();
